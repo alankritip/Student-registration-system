@@ -1,0 +1,326 @@
+/* ===== Global Reset and Variables ===== */
+/* Reset default margins and padding for consistency */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Define CSS variables for consistent theming */
+:root {
+  --form-bg-color: #f0f4f8; /* Light gray background for body */
+  --primary-color: #4a90e2; /* Blue for submit button */
+  --primary-hover: #3a78c2; /* Darker blue for submit button hover */
+  --table-header-bg: #2c3e50; /* Dark blue for table header */
+  --table-even-bg: #f9f9fb; /* Light gray for even table rows */
+  --table-hover-bg: #e1effc; /* Light blue for table row hover */
+  --table-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); /* Subtle shadow for depth */
+  --text-color: #333333; /* Dark text for readability */
+  --label-color: #2c3e50; /* Dark blue for labels */
+  --error-color: #d9534f; /* Red for error messages */
+  --success-color: #28a745; /* Green for edit button hover */
+  --delete-color: #dc3545; /* Red for delete button hover */
+}
+
+/* ===== Body & Header ===== */
+/* Body styling for overall layout and typography */
+body {
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--form-bg-color);
+  color: var(--text-color);
+}
+
+/* Header styling for title and description */
+header {
+  text-align: center;
+  padding: 20px;
+  background-color: var(--table-header-bg);
+  color: white;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: var(--table-shadow);
+}
+
+header h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.sub-head {
+  font-size: 18px;
+  color: #e0e0e0;
+}
+
+/* ===== Container & Form Section ===== */
+/* Main container for centering content */
+.container {
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+/* Form section to center the form */
+.form-section {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Form styling for clean appearance */
+#studentForm {
+  width: 60%;
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: white; /* White form for contrast */
+  border-radius: 20px;
+  box-shadow: var(--table-shadow);
+  padding: 25px;
+}
+
+/* ===== Form Groups ===== */
+/* Form group for aligning labels and inputs */
+.form-group {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+  padding: 12px 25px;
+}
+
+.form-group label {
+  width: 30%;
+  font-weight: 600;
+  font-size: 20px;
+  color: var(--label-color);
+}
+
+.form-group input {
+  width: 70%;
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus {
+  border-color: var(--table-header-bg);
+  box-shadow: 0 0 8px rgba(44, 62, 80, 0.2); /* Subtle glow */
+  outline: none;
+}
+
+/* ===== Error Text ===== */
+/* Error messages for validation feedback */
+.error {
+ color: var(--error-color);
+  font-size: 14px;
+  margin-top: 5px;
+  min-height: 20px;
+  animation: fadeInError 0.3s ease-in;
+}
+
+/* Fade-in animation for error messages */
+@keyframes fadeInError {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ===== Submit Button ===== */
+/* Submit button for form actions */
+#submitBtn {
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#submitBtn:hover {
+  background-color: var(--primary-hover);
+  box-shadow: 0 0 8px rgba(74, 144, 226, 0.4); /* Glow effect */
+}
+
+/* ===== Student Records Table ===== */
+/* Table container with dynamic vertical scrollbar */
+.student-records {
+  width: 80%;
+  margin: 40px auto;
+  background-color: white;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: var(--table-shadow);
+  max-height: 400px;
+  overflow-y: auto;
+  overflow-x: auto;
+}
+
+/* Table styling for data display */
+#student-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 15px;
+}
+
+#student-table thead {
+  background-color: var(--table-header-bg);
+  color: white;
+  position: sticky; /* Keep header visible when scrolling */
+  top: 0;
+}
+
+#student-table th,
+#student-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #ddd;
+}
+
+#student-table tr:nth-child(even) {
+  background-color: var(--table-even-bg);
+}
+
+#student-table tbody tr:hover {
+  background-color: var(--table-hover-bg);
+  transition: background-color 0.3s ease;
+}
+
+/* ===== Action Buttons ===== */
+/* Edit and delete buttons for table actions */
+.edit_btn,
+.delete_btn {
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  background-color: var(--table-even-bg);
+  color: var(--table-header-bg);
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.edit_btn:hover {
+  background-color: var(--success-color);
+  color: white;
+  border: 1px solid var(--success-color);
+  box-shadow: 0 0 8px rgba(40, 167, 69, 0.4); /* Green glow */
+}
+
+.delete_btn:hover {
+  background-color: var(--delete-color);
+  color: white;
+  border: 1px solid var(--delete-color);
+  box-shadow: 0 0 8px rgba(220, 53, 69, 0.4); /* Red glow */
+}
+
+/* ===== Responsive Design ===== */
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+  .container {
+    min-height: auto;
+  }
+
+  .form-section {
+    padding: 10px;
+  }
+
+  #studentForm {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .form-group {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 10px;
+  }
+
+  .form-group label,
+  .form-group input {
+    width: 100%;
+  }
+
+  .error {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .student-records {
+    width: 95%;
+  }
+
+  #student-table th,
+  #student-table td {
+    padding: 8px 12px;
+  }
+
+  header h1 {
+    font-size: 28px;
+  }
+}
+
+/* ===== Animations ===== */
+/* Fade-in animation for elements */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Glow effect for input focus */
+@keyframes glowFocus {
+  0% {
+    box-shadow: 0 0 0 rgba(0, 123, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.4);
+  }
+}
+
+/* Apply animations to header, form, and table */
+header,
+#studentForm {
+  animation: fadeInUp 0.6s ease-in-out both;
+}
+
+.student-records {
+  animation: fadeInUp 0.8s ease-in-out both;
+  animation-delay: 0.2s;
+}
+
+/* Button hover animations */
+#submitBtn,
+.edit_btn,
+.delete_btn {
+  transition: transform 0.2s ease, background-color 0.2s ease, border 0.2s ease, box-shadow 0.3s ease;
+}
+
+#submitBtn:hover,
+.edit_btn:hover,
+.delete_btn:hover {
+  transform: scale(1.03);
+  border: 1px solid var(--table-header-bg);
+}
+
+.form-group input:focus {
+  animation: glowFocus 0.4s forwards;
+}
+
+#student-table tbody tr {
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#student-table tbody tr:hover {
+  background-color: var(--table-hover-bg);
+  transform: translateX(4px);
+}

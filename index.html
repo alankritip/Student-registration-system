@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags for character encoding, responsive viewport, and SEO -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Student Registration System for managing student records">
+    <!-- Page title -->
+    <title>Student Registration System</title>
+    <!-- Font Awesome for edit/delete icons -->
+    <script src="https://kit.fontawesome.com/03a6d940a6.js" crossorigin="anonymous"></script>
+    <!-- Link to CSS for styling -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header with system title and description -->
+    <header>
+        <h1>Student Management System</h1>
+        <p class="sub-head">Register, edit, and manage student records with ease.</p>
+    </header>
+    <!-- Main container for form and records -->
+    <div class="container">
+        <!-- Form section for student input -->
+        <div class="form-section">
+            <form id="studentForm">
+                <!-- Student name input with error display -->
+                <div class="form-group">
+                    <label for="name">Student name:</label>
+                    <input type="text" placeholder="Enter name" id="name" required>
+                    <span class="error" id="nameError"></span>
+                </div>
+                <!-- Student ID input with error display -->
+                <div class="form-group">
+                    <label for="studentId">Student ID:</label>
+                    <input type="text" placeholder="Enter ID" id="studentId" required>
+                    <span class="error" id="idError"></span>
+                </div>
+                <!-- Student Email input with error display -->
+                <div class="form-group">
+                    <label for="email">Student Email:</label>
+                    <input type="email" placeholder="Enter Email" id="email" required>
+                    <span class="error" id="emailError"></span>
+                </div>
+                <!-- Student contact number input with error display -->
+                <div class="form-group">
+                    <label for="contact">Contact Number:</label>
+                    <input type="text" placeholder="Enter Contact No." id="contact" required>
+                    <span class="error" id="contactError"></span>
+                </div>
+                <!-- Submit button for adding/updating students -->
+                <button type="submit" id="submitBtn">Add Student</button>
+            </form>
+        </div>
+        <!-- Section for displaying student records in a table -->
+        <div class="student-records">
+            <table id="student-table">
+                <thead>
+                    <tr>
+                        <th>Student Name</th>
+                        <th>Student ID</th>
+                        <th>Email</th>
+                        <th>Contact Number</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="studentTableBody"></tbody>
+            </table>
+        </div>
+    </div>
+    <!-- Link to JavaScript for functionality -->
+    <script src="script.js"></script>
+</body>
+</html>
