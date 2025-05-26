@@ -3,6 +3,9 @@
 ## Overview :
 This project is a web-based Student Registration System developed as part of an assignment. It allows users to add, edit, and delete student records, with data persisted in local storage. The system features input validation, a responsive design with animations, and a dynamic vertical scrollbar for the records table.
 
+## GitHub Repository :
+**[GitHub Project Link](https://github.com/alankritip/Student-registration-system)**
+
 ## Features :
 Add Students: Register students with name, student ID, email, and contact number.
 Edit Students: Update existing student records.
